@@ -1,0 +1,7 @@
+.results:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+.vram_used {
+	background-color: lime;
+}

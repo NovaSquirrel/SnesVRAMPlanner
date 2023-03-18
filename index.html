@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html><meta charset="UTF-8">
+<head>
+	<link rel="stylesheet" type="text/css" href="snesvram.css">
+	<script src="snesvram.js"></script>
+	<title>SNES VRAM planning tool</title>
+</head>
+<body onload="init();";>
+
+
+<div style="display: flex;">
+<fieldset>
+	<legend>PPU setup</legend>
+
+	<div>
+		<label for="bgmode">BG mode:</label>
+		<select name="bgmode" id="bgmode" onchange="modeChanged();">
+			<option value="0" selected>0</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+		</select>
+	</div>
+
+	<table border="1">
+		<tr><th>Map size</th><th>Layer</th></tr>
+		<tr>
+			<td>
+				<select name="sizelayer0" id="sizelayer0" style="width: 6em;" onchange="refreshUsedMap();">
+					<option value="0" id="sizelayer0_0">---</option>
+					<option value="1" id="sizelayer0_1" selected>32x32</option>
+					<option value="2" id="sizelayer0_2">64x32</option>
+					<option value="2" id="sizelayer0_3">32x64</option>
+					<option value="4" id="sizelayer0_4">64x64</option>
+					<option value="8" id="sizelayer0_5" disabled>128x128</option>
+				</select>
+			</td>
+			<td>
+				<label for="sizelayer0" id="labellayer0">Layer 0: 4-color</label>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<select name="sizelayer1" id="sizelayer1" style="width: 6em;" onchange="refreshUsedMap();">
+					<option value="0">---</option>
+					<option value="1" selected>32x32</option>
+					<option value="2">64x32</option>
+					<option value="2">32x64</option>
+					<option value="4">64x64</option>
+				</select>
+			</td>
+			<td>
+				<label for="sizelayer1" id="labellayer1">Layer 1: 4-color</label>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<select name="sizelayer2" id="sizelayer2" style="width: 6em;" onchange="refreshUsedMap();">
+					<option value="0">---</option>
+					<option value="1" selected>32x32</option>
+					<option value="2">64x32</option>
+					<option value="2">32x64</option>
+					<option value="4">64x64</option>
+				</select>
+			</td>
+			<td>
+				<label for="sizelayer2" id="labellayer2">Layer 2: 4-color</label>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<select name="sizelayer3" id="sizelayer3" style="width: 6em;" onchange="refreshUsedMap();">
+					<option value="0">---</option>
+					<option value="1" selected>32x32</option>
+					<option value="2">64x32</option>
+					<option value="2">32x64</option>
+					<option value="4">64x64</option>
+				</select>
+			</td>
+			<td>
+				<label for="sizelayer3" id="labellayer3">Layer 3: 4-color</label>
+			</td>
+		</tr>
+	</table>
+
+	<div>
+		<input type="checkbox" id="enablesprites" name="enablesprites" onchange="refreshUsedMap();" checked>
+		<label for="enablesprites">Sprites</label>
+		<br>
+		Sprite gap:
+		<select name="spritegap" id="spritegap" style="width: 6em;" onchange="refreshUsedMap();">
+			<option value="1" selected>---</option>
+			<option value="2">256 tiles</option>
+			<option value="3">512 tiles</option>
+			<option value="4">768 tiles</option>
+		</select>
+	</div>
+</fieldset>
+</div>
+
+<hr>
+
+<table border="1" id="vram_table">
+	<tr>
+		<th>Address</th><th>Layer 0 map</th><th>Layer 1 map</th><th>Layer 2 map</th><th>Layer 3 map</th><th>Layer 0 graphics</th><th>Layer 1 graphics</th><th>Layer 2 graphics</th><th>Layer 3 graphics</th><th>Sprite graphics</th>
+	</tr>
+</table>
+
+
+</body>
+</html>
