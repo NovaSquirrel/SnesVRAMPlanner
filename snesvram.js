@@ -187,6 +187,7 @@ function modeChanged() {
 		case 2:
 			layer0size.disabled = false;
 			layer1size.disabled = false;
+			layer2size.disabled = false;
 			layer0label.innerText = "Layer 0: 16-color";
 			layer1label.innerText = "Layer 1: 16-color";
 			layer2label.innerText = "Layer 2: offset-per-tile";
