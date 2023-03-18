@@ -199,6 +199,7 @@ function modeChanged() {
 			layer1size.disabled = false;
 			layer0label.innerText = "Layer 0: 256-color";
 			layer1label.innerText = "Layer 1: 16-color";
+			document.getElementById("sizelayer2").selectedIndex = 0;
 			document.getElementById("sizelayer3").selectedIndex = 0;
 			layer0chrSize = 8;
 			layer1chrSize = 4;
