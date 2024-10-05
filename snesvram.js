@@ -220,11 +220,11 @@ function modeChanged() {
 			layer0size.disabled = false;
 			layer1size.disabled = false;
 			layer0label.innerText = "Layer 0: 16-color";
-			layer1label.innerText = "Layer 1: 16-color";
+			layer1label.innerText = "Layer 1: 4-color";
 			document.getElementById("sizelayer2").selectedIndex = 0;
 			document.getElementById("sizelayer3").selectedIndex = 0;
 			layer0chrSize = 4;
-			layer1chrSize = 4;
+			layer1chrSize = 2;
  			break;
 		case 6:
 			layer0size.disabled = false;
