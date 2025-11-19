@@ -73,7 +73,7 @@ function refreshUsedMap() {
 }
 
 function changeMap(category, index) {
-	mapValues[category] = index;
+	mapValues[category] = parseInt( index );
 	refreshUsedMap();
 }
 
@@ -95,9 +95,17 @@ function refreshTable() {
 
 		function radio_cell(category, index, rows) {
 			let c = document.createElement("td");
-			c.innerHTML = '<input type="radio" name="'+category+'" onclick="changeMap(\''+category+'\', '+index+')">';
+			let i = document.createElement("input");
+			i.type = "radio"
+			i.name = category;
+			i.disabled = true;
+			c.append( i );
 			c.rowSpan = rows;
 			c.id = category + "_" + index;
+			c.addEventListener( "click", e => {
+				e.currentTarget.querySelector( 'input' ).checked = true;
+				changeMap( ...e.currentTarget.id.split( "_" ) );
+			} );
 			row.append(c);
 		}
 
@@ -105,8 +113,8 @@ function refreshTable() {
 		row.classList.add("results");
 		output.append(row);
 
-		text_cell((i*1024).toString(16), "address", i, 1);
-
+		text_cell("x" + (i*1024).toString(16).padStart(4, "0"), "address", i, 1);
+		
 		radio_cell("vrambg0", i, 1);
 		radio_cell("vrambg1", i, 1);
 		radio_cell("vrambg2", i, 1);
