@@ -1,7 +1,15 @@
 .results:nth-child(even) {
-	background-color: #f2f2f2;
+	background-color: gainsboro;
 }
 
 .vram_used {
 	background-color: lime;
+}
+
+table#vram_table td {
+	text-align: center;
+}
+
+input[type=radio] {
+	pointer-events: none;
 }
